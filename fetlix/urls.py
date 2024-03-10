@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.documentation import include_docs_urls
+#from rest_framework.documentation import include_docs_urls
 from rest_framework_jwt.views import obtain_jwt_token
 
 from series.api.router import router
@@ -23,6 +23,6 @@ from series.api.router import router
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', obtain_jwt_token),
-    path('docs/', include_docs_urls(title='My API Title', public=True)),
+#    path('docs/', include_docs_urls(title='API Practiva Fetlix', public=True)),
     path('api/', include(router.urls))
 ]

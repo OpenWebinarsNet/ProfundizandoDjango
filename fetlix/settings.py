@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import datetime
 import sys
 from pathlib import Path
+import django
+from django.utils.translation import gettext
+django.utils.translation.ugettext = gettext
+
+from django.utils.encoding import smart_str
+django.utils.encoding.smart_text = smart_str
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -111,6 +117,17 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
 }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAuthenticated',
+#     ),
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+#         'rest_framework.authentication.SessionAuthentication',
+#         'rest_framework.authentication.BasicAuthentication',
+#     ),
+# }
 
 JWT_AUTH = {
     "JWT_EXPIRATION_DELTA": datetime.timedelta(days=3)
