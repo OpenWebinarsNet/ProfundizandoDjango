@@ -3,3 +3,4 @@ __pycache__
 static
 .coverage
 db.sqlite3
+.denv
